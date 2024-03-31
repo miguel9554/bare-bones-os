@@ -85,16 +85,19 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 
 void terminal_putchar(char c)
 {
+    // Put the character
     if (c == '\n'){
-		terminal_column = 0;
-        terminal_row++;
+        // Set it to VGA_WIDTH-1 so then it goes down with the increment
+		terminal_column = VGA_WIDTH-1;
     } else{
         terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
-        if (++terminal_column == VGA_WIDTH) {
-            terminal_column = 0;
-            if (++terminal_row == VGA_HEIGHT)
-                terminal_row = 0;
-        }
+    }
+
+    // Handle column and row increment
+    if (++terminal_column == VGA_WIDTH) {
+        terminal_column = 0;
+        if (++terminal_row == VGA_HEIGHT)
+            terminal_row = 0;
     }
 }
 
@@ -114,7 +117,47 @@ void kernel_main(void)
 	/* Initialize terminal interface */
 	terminal_initialize();
 
-	/* Newline support is left as an exercise. */
-	terminal_writestring("Hello, kernel World!\n");
-	terminal_writestring("Hello again, kernel World!\n");
+	terminal_writestring("00: Hello, kernel World!\n");
+	terminal_writestring("01: Hello again, kernel World!\n");
+	terminal_writestring("02: Hello again, kernel World!\n");
+	terminal_writestring("03: Hello again, kernel World!\n");
+	terminal_writestring("04: Hello again, kernel World!\n");
+	terminal_writestring("05: Hello again, kernel World!\n");
+	terminal_writestring("06: Hello again, kernel World!\n");
+	terminal_writestring("07: Hello again, kernel World!\n");
+	terminal_writestring("08: Hello again, kernel World!\n");
+	terminal_writestring("09: Hello again, kernel World!\n");
+
+	terminal_writestring("10: Hello again, kernel World!\n");
+	terminal_writestring("11: Hello again, kernel World!\n");
+	terminal_writestring("12: Hello again, kernel World!\n");
+	terminal_writestring("13: Hello again, kernel World!\n");
+	terminal_writestring("14: Hello again, kernel World!\n");
+	terminal_writestring("15: Hello again, kernel World!\n");
+	terminal_writestring("16: Hello again, kernel World!\n");
+	terminal_writestring("17: Hello again, kernel World!\n");
+	terminal_writestring("18: Hello again, kernel World!\n");
+	terminal_writestring("19: Hello again, kernel World!\n");
+
+	terminal_writestring("20: Hello again, kernel World!\n");
+	terminal_writestring("21: Hello again, kernel World!\n");
+	terminal_writestring("22: Hello again, kernel World!\n");
+	terminal_writestring("23: Hello again, kernel World!\n");
+	terminal_writestring("24: Hello again, kernel World!\n");
+	terminal_writestring("25: Hello again, kernel World!\n");
+	terminal_writestring("26: Hello again, kernel World!\n");
+	terminal_writestring("27: Hello again, kernel World!\n");
+	terminal_writestring("28: Hello again, kernel World!\n");
+	terminal_writestring("29: Hello again, kernel World!\n");
+
+	terminal_writestring("30: Hello again, kernel World!\n");
+	terminal_writestring("31: Hello again, kernel World!\n");
+	terminal_writestring("32: Hello again, kernel World!\n");
+	terminal_writestring("33: Hello again, kernel World!\n");
+	terminal_writestring("34: Hello again, kernel World!\n");
+	terminal_writestring("35: Hello again, kernel World!\n");
+	terminal_writestring("36: Hello again, kernel World!\n");
+	terminal_writestring("37: Hello again, kernel World!\n");
+	terminal_writestring("38: Hello again, kernel World!\n");
+	terminal_writestring("39: Hello again, kernel World!\n");
 }
