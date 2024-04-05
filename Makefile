@@ -58,7 +58,7 @@ $(OS_ISO): $(OS_BIN) $(GRUB_CFG)
 
 # Clean target
 clean:
-	rm -f $(BUILD_DIR)/*
+	rm -rf $(BUILD_DIR)/*
 
 # Phony targets
 .PHONY: all clean
